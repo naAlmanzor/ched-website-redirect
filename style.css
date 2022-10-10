@@ -25,42 +25,86 @@ body {
   text-align: center;
 }
 
+.container-facilities{
+  display: grid;
+  height: 300vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.8fr 2.2fr 0.4fr;
+  grid-template-areas:
+    "gap gap gap gap"
+    "facilities facilities facilities facilities "
+    "footer footer footer footer";
+  /* grid-gap: 0.2rem; */
+  text-align: center;
+}
+
+.header-gap{
+  background-color: black;
+  grid-area: gap;
+}
+
+.facilities-content{
+  grid-area: facilities;
+  background-color: rgb(220, 220, 220);
+  margin-top: 10%;
+}
+
 main {
   /* background-color: rgb(50, 182, 182); */
   grid-area: main;
 }
 
-header {
-  display: grid;
-  height: 1000px;
-
-  background-image: url(./assets/CHED-Building.png);
-  background-repeat: no-repeat;
-  background-size: contain;
+header{
+  position: fixed;
+  width: 100%;
+  background-color:  rgb(69, 69, 148);
 }
 
-.header-container {
-  grid-template-columns: 700px, 200px;
+.logo-icon{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 80px;
 }
 
-#header-name {
-  width: 30.15%;
-  height: 50;
-  padding: 5px;
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+}
+
+.nav-list{
+  list-style-type: none;
+  margin-left: 50%;
+}
+
+.nav-list .list-item{
   display: inline-block;
+  padding: 0px 30px;
 }
 
-#header-ched-logo {
-  width: 9.15%;
-  height: 100;
-  padding: 10px;
-  display: inline-block;
+.navbar .list-item a{
+  color: white;
+  text-decoration: none;
+  transition: ease-in-out 200ms;
+  font-weight: 520;
 }
 
-.header-option {
-  width: 8.15%;
-  height: 100;
-  display: inline-block;
+.navbar .list-item a:hover{
+  color: black;
+  transition: ease-in-out 200ms;
+} 
+
+.menu{
+  display: none;
+}
+
+.menu-line{
+  width: 30px;
+  height: 5px;
+  border-radius: 20px;
+  background-color: white;
+  margin: 4px;
 }
 
 .main-container {
@@ -127,10 +171,76 @@ header {
   border-radius: var(--main-raidius);
 }
 
+.content{
+  grid-area: content;
+}
+
+.content-left{
+  /* background-color: rgb(167, 91, 91); */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr;
+  grid-template-areas: 
+    "desc fac-img"
+    "link fac-img";
+  padding: 5%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.content-right{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr;
+  grid-template-areas: 
+    "fac-img desc"
+    "fac-img link";
+  padding: 5%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.desc-facility{
+  grid-area: desc;
+  margin-bottom: 10px;
+}
+
+.linkVTour{
+  grid-area: link;
+  position: relative;
+  right: 40%;
+  bottom: 30px;
+}
+
+.facility-img{
+  grid-area: fac-img;
+}
+
+.vtour-img{
+  width: 80%;
+}
+
+.content-left .vtour-img{
+  padding-left: 20%;
+}
+
+.content-right .vtour-img{
+  padding-right: 20%;
+}
+
+#fac-title{
+  text-align: left;
+  color: black;
+  font-size: 25px;
+}
+
+#description-facility{
+  color: black;
+  text-align: justify;
+}
+
 #title,
 #description {
   color: black;
-  ;
 }
 
 #title {
@@ -219,6 +329,45 @@ img[alt="mmcm-logo"] {
 }
 
 @media only screen and (max-width: 550px) {
+  
+  /* header */
+  .container-icon{
+    width: 100%;
+    margin-left: 20px;
+  }
+  
+  .logo-icon{
+    height: 50px;
+  }
+
+  .navbar{
+    flex-direction: column;
+  }
+  
+  .nav-list .list-item {
+    padding: 10px 0px;
+    display: block;
+    text-align: center;
+    border-top: 1px solid white;
+    margin-left: -50%;
+  }
+
+  .nav-list {
+    display: none;
+    width: 100%;
+  }
+  .menu{
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  .active{
+    display: block;
+  }
+
+  /* contents */
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 0.3fr 1fr 1fr 0.3fr;
@@ -255,6 +404,23 @@ img[alt="mmcm-logo"] {
 
   #title {
     margin-top: 25%;
+  }
+
+  .container-facilities{
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 4fr 0.4fr;
+    grid-template-areas:
+      "gap"
+      "facilities"
+      "footer";
+    text-align: center;
+  }
+
+  .content-left{
+    padding: 40%;
+  }
+  .content-right{
+    padding: 40%;
   }
 
   .footer-container {
